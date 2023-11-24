@@ -30,23 +30,27 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import accuracy_score
 
 class BayesClassifier:
-  def _init_(self):
-    self.clf=GaussianNB()
-  
-  def fit(self,X,y):
-    self.clf.fit(X,y)
 
-  def predict(self,X):
-    return self.clf.predict(X)
-  
-iris=load_iris()
-X_train,X_test,y_train,y_test=train_test_split(iris.data,iris.target,test_size=0.3,random_state=38)
+ def __init__(self):
+   self.clf = GaussianNB()
 
-clf=BayesClassifier()
-clf.fit(X_train,y_train)
-y_pred=clf.predict(X_test)
-accuracy=accuracy_score(y_test,y_pred)
-print("Accuracy: ",accuracy)
+ def fit(self, X, y):
+   self.clf.fit(X, y)
+
+ def Predict(self, X):
+   return self.clf.predict(X)
+  
+iris = load_iris()
+X_train, X_test, y_train, y_test =  train_test_split(iris.data, iris.target,  test_size=0.3, random_state=38)
+
+clf = BayesClassifier()
+
+clf.fit(X_train, y_train)
+
+y_pred = clf.Predict(X_test)
+
+accuracy = accuracy_score(y_test, y_pred)
+print("Accuracy:",accuracy)
 ```
 ## Output:
 ![output](https://github.com/syedmokthiyar/Bayes-Classifier/assets/118787294/ef459add-b8f3-4984-9521-ed098ca05d33)
